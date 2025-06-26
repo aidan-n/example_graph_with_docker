@@ -2,7 +2,7 @@ To run in Docker:
 
 host_directory> `docker build --no-cache -t image-name .`
 
-host_directory> `docker run -d bar-graph-image sleep infinity`
+host_directory> `docker run -d image-name sleep infinity`
 The above line runs the container, and keeps running it, but does not actually 
 execute the python script.
 

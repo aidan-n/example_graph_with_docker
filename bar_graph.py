@@ -7,7 +7,7 @@ values = [10, 15, 7, 12]
 # Create the bar graph
 plt.bar(categories, values)
 
-# Add labels and title
+# Create labels and title
 plt.xlabel('Fruit Type')
 plt.ylabel('Quantity')
 plt.title('Fruit Quantities in Stock')

@@ -1,11 +1,9 @@
-# Use a slim Python base image for a smaller image size
 FROM python:3.9-slim-buster
 
 # Set the working directory inside the container
 WORKDIR ./app
 
 # Install system dependencies required by Matplotlib
-# These might include build tools and libraries for font rendering, image formats, etc.
 RUN apt-get update && \
     apt-get install -y \
     build-essential \
@@ -14,11 +12,12 @@ RUN apt-get update && \
     libpng-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy your requirements.txt file and install Python dependencies
+# Copy requirements.txt file into container
 COPY requirements.txt .
+# Install dependencies with requirement.txt as a dependency
 RUN pip install --no-cache-dir -r requirements.txt
-# Copy your application code into the container
+# Copy application code into container
 COPY . .
 
-# Command to run your application (adjust as needed)
+# Run application
 CMD ["python", "bar_graph.py"]
